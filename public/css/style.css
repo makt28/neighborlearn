@@ -1,0 +1,140 @@
+/* ============================================================
+   NeighborLearn — global stylesheet
+   Warm, restrained theme (orange / cream / brown).
+   One font (Inter), simple borders, soft shadows, no gradients.
+   All theme colours live in :root so one edit re-themes the site.
+   ============================================================ */
+
+:root {
+  --nl-orange:      #D9772F;
+  --nl-orange-dark: #B75E1C;
+  --nl-cream:       #FBF7F1;
+  --nl-beige:       #EFE4D4;
+  --nl-brown:       #3C2E22;
+  --nl-brown-soft:  #6B5745;
+  --nl-line:        #E6DACB;   /* borders */
+  --nl-white:       #FFFFFF;
+  --nl-radius:      10px;
+  --nl-shadow:      0 2px 10px rgba(60, 46, 34, 0.06);
+}
+
+/* ---------- base ---------- */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--nl-brown);
+  background-color: var(--nl-cream);
+}
+
+h1, h2, h3, h4, h5 { font-weight: 700; color: var(--nl-brown); }
+
+a { color: var(--nl-orange-dark); text-decoration: none; }
+a:hover { color: var(--nl-orange); text-decoration: underline; }
+
+.nl-accent { color: var(--nl-orange); }
+
+/* ---------- buttons ---------- */
+.btn-nl {
+  background-color: var(--nl-orange);
+  border: 1px solid var(--nl-orange);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: .5rem 1.2rem;
+}
+.btn-nl:hover { background-color: var(--nl-orange-dark); border-color: var(--nl-orange-dark); color: #fff; }
+
+.btn-nl-outline {
+  border: 1px solid var(--nl-orange);
+  color: var(--nl-orange-dark);
+  font-weight: 600;
+  border-radius: 8px;
+  padding: .5rem 1.2rem;
+  background: transparent;
+}
+.btn-nl-outline:hover { background: var(--nl-orange); color: #fff; }
+
+/* ---------- navbar ---------- */
+.nl-navbar {
+  background-color: var(--nl-white);
+  border-bottom: 1px solid var(--nl-line);
+}
+.nl-navbar .navbar-brand { font-weight: 700; color: var(--nl-brown); }
+.nl-navbar .nav-link { color: var(--nl-brown-soft); font-weight: 500; }
+.nl-navbar .nav-link:hover { color: var(--nl-orange); }
+
+.nl-credit-badge {
+  background: var(--nl-beige);
+  color: var(--nl-brown);
+  border-radius: 6px;
+  padding: .3rem .6rem;
+  font-weight: 600;
+  font-size: .9rem;
+  white-space: nowrap;
+}
+.nl-avatar {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: var(--nl-orange); color: #fff;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-weight: 600; text-decoration: none;
+}
+.nl-avatar-lg { width: 84px; height: 84px; font-size: 1.7rem; }
+
+/* ---------- hero ---------- */
+.nl-hero {
+  background: var(--nl-beige);
+  border-radius: var(--nl-radius);
+}
+.nl-hero h1 { font-size: 2.1rem; line-height: 1.2; }
+@media (min-width: 768px) {
+  .nl-hero h1 { font-size: 2.7rem; }
+}
+
+/* ---------- cards ---------- */
+.nl-card {
+  background: var(--nl-white);
+  border: 1px solid var(--nl-line);
+  border-radius: var(--nl-radius);
+  box-shadow: var(--nl-shadow);
+  overflow: hidden;
+}
+.nl-card:hover { border-color: var(--nl-orange); }
+
+.nl-skill-thumb {
+  height: 108px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--nl-cream);
+  color: var(--nl-orange);
+  font-size: 2.2rem;
+  border-bottom: 1px solid var(--nl-line);
+}
+.nl-chip {
+  display: inline-block;
+  background: var(--nl-beige);
+  color: var(--nl-brown-soft);
+  border-radius: 6px;
+  padding: .12rem .5rem;
+  font-size: .75rem;
+  font-weight: 600;
+}
+.nl-stat-card {
+  background: var(--nl-white);
+  border: 1px solid var(--nl-line);
+  border-radius: var(--nl-radius);
+  padding: 1rem;
+  text-align: center;
+}
+.nl-stat-card .num { font-size: 1.6rem; font-weight: 700; color: var(--nl-orange-dark); }
+
+/* ---------- how it works step ---------- */
+.nl-step-num {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--nl-beige); color: var(--nl-orange-dark);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; font-weight: 700;
+}
+
+/* ---------- misc ---------- */
+.nl-star { color: #DFA63C; }
+.nl-footer { background: var(--nl-brown); color: var(--nl-beige); }
+.nl-footer a { color: var(--nl-beige); }
+.nl-footer a:hover { color: #fff; }
