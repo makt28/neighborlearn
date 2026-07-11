@@ -1,4 +1,5 @@
-/* profile.js — user dashboard: banner, stats, tabs, edit */
+/* profile.js — user dashboard: banner, stats, tabs (teach / want / history),
+   community reviews, and the edit-profile popup */
 document.addEventListener("DOMContentLoaded", async function () {
   await Store.init();
   if (!requireAuth()) return;
@@ -9,6 +10,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     const user = Store.currentUser();
     const teaches = Store.getSkills({ ownerId: user.id, includeHidden: true });
     const bookings = Store.getBookings(user.id);
+    const wants = user.wants || [];
+    const reviews = Store.getReviews(user.id);
     const taught = bookings.filter(b => b.teacherId === user.id && b.status === "completed").length;
     const learned = bookings.filter(b => b.learnerId === user.id && b.status === "completed").length;
 
@@ -40,6 +43,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       <div class="nl-card p-4 mb-4">
         <ul class="nav nav-pills mb-3 gap-2" id="profile-tabs">
           <li class="nav-item"><button class="nav-link active" data-tab="teach">Skills I Teach</button></li>
+          <li class="nav-item"><button class="nav-link" data-tab="want">Skills I Want</button></li>
           <li class="nav-item"><button class="nav-link" data-tab="history">Session History</button></li>
         </ul>
 
@@ -54,6 +58,17 @@ document.addEventListener("DOMContentLoaded", async function () {
           </div>
         </div>
 
+        <div class="tab-pane d-none" data-pane="want">
+          <div class="row g-3">
+            ${wants.length ? wants.map(w => `
+              <div class="col-md-6"><div class="border rounded p-3 d-flex gap-3 align-items-center">
+                <div class="nl-accent" style="font-size:1.6rem;"><i class="bi bi-heart"></i></div>
+                <div><div class="fw-bold">${nlEscape(w)}</div>
+                  <div class="small text-muted">Wants to learn</div></div>
+              </div></div>`).join("") : '<p class="text-muted">No wanted skills added yet.</p>'}
+          </div>
+        </div>
+
         <div class="tab-pane d-none" data-pane="history">
           ${bookings.length ? `<div class="table-responsive"><table class="table align-middle">
             <thead><tr><th>Skill</th><th>Role</th><th>Date</th><th>Status</th></tr></thead><tbody>
@@ -65,6 +80,26 @@ document.addEventListener("DOMContentLoaded", async function () {
             }).join("")}
           </tbody></table></div>` : '<p class="text-muted">No sessions yet. <a href="browse.html">Browse skills</a> to book one.</p>'}
         </div>
+      </div>
+
+      <!-- COMMUNITY REVIEWS -->
+      <div class="nl-card p-4 mb-4">
+        <h3 class="mb-3">Community Reviews</h3>
+        ${reviews.length ? reviews.map(r => {
+          const rev = Store.getUser(r.reviewerId);
+          return `
+          <div class="d-flex gap-3 py-3 border-bottom">
+            ${rev ? nlAvatar(rev) : ""}
+            <div class="flex-grow-1">
+              <div class="d-flex justify-content-between">
+                <span class="fw-bold">${rev ? nlEscape(rev.name) : "Neighbour"}</span>
+                <span class="small text-muted">${nlEscape(r.time)}</span>
+              </div>
+              <div class="small mb-1">${nlStars(r.rating)} ${r.rating.toFixed(1)}</div>
+              <div>${nlEscape(r.text)}</div>
+            </div>
+          </div>`;
+        }).join("") : '<p class="text-muted mb-0">No reviews yet.</p>'}
       </div>`;
 
     wireTabs();

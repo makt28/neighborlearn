@@ -26,7 +26,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     <div class="row g-4">
       <div class="col-lg-8">
         <div class="nl-card">
-          <div class="nl-skill-thumb" style="height:200px; font-size:4rem;"><i class="bi ${nlCategoryIcon(skill.category)}"></i></div>
+          <div class="nl-skill-thumb" style="height:240px; font-size:4rem;">
+            <img src="${nlSkillImage(skill)}" alt="${nlEscape(skill.title)}">
+          </div>
           <div class="p-4">
             <span class="nl-chip mb-2">${nlEscape(skill.category)}</span>
             <h1 class="mb-2">${nlEscape(skill.title)}</h1>
@@ -57,10 +59,62 @@ document.addEventListener("DOMContentLoaded", async function () {
       </div>
     </div>`;
 
-  // --- booking flow ---
+  // --- booking flow: tap a day + a time, no manual typing ---
   const bookModal = new bootstrap.Modal(document.getElementById("bookModal"));
-  const dateInput = document.getElementById("book-date");
-  dateInput.min = new Date().toISOString().slice(0, 10);
+  let pickedDate = "";
+  let pickedTime = "";
+
+  // small helper: highlight the clicked button and un-highlight the others
+  function highlight(box, chosen) {
+    const buttons = box.querySelectorAll(".nl-slot");
+    for (const b of buttons) b.classList.remove("active");
+    chosen.classList.add("active");
+  }
+
+  // build a button for each of the next 6 days
+  const daysBox = document.getElementById("book-days");
+  for (let i = 1; i <= 6; i++) {
+    const d = new Date();
+    d.setDate(d.getDate() + i);
+    // the date we store, written as YYYY-MM-DD (months start at 0, so add 1)
+    const iso = d.getFullYear() + "-" +
+      String(d.getMonth() + 1).padStart(2, "0") + "-" +
+      String(d.getDate()).padStart(2, "0");
+    const label = d.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" });
+
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "nl-slot";
+    btn.textContent = label;
+    btn.onclick = function () {
+      highlight(daysBox, btn);
+      pickedDate = iso;            // remember the chosen day
+    };
+    daysBox.appendChild(btn);
+  }
+
+  // build a button for each session time (1-hour slots)
+  const slots = [
+    ["09:00", "9:00 – 10:00 AM"],
+    ["11:00", "11:00 AM – 12:00 PM"],
+    ["14:00", "2:00 – 3:00 PM"],
+    ["16:00", "4:00 – 5:00 PM"],
+    ["19:00", "7:00 – 8:00 PM"]
+  ];
+  const timesBox = document.getElementById("book-times");
+  for (const slot of slots) {
+    const start = slot[0];         // e.g. "14:00" (what we save)
+    const label = slot[1];         // e.g. "2:00 – 3:00 PM" (what the user sees)
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "nl-slot";
+    btn.textContent = label;
+    btn.onclick = function () {
+      highlight(timesBox, btn);
+      pickedTime = start;          // remember the chosen time
+    };
+    timesBox.appendChild(btn);
+  }
 
   document.getElementById("book-btn").addEventListener("click", function () {
     if (!me) { location.href = "login.html"; return; }
@@ -77,9 +131,10 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   document.getElementById("book-form").addEventListener("submit", async function (e) {
     e.preventDefault();
-    const form = e.target;
-    if (!form.checkValidity()) { form.classList.add("was-validated"); return; }
-    const b = await Store.addBooking(skill.id, me.id, dateInput.value, document.getElementById("book-time").value);
+    const err = document.getElementById("book-error");
+    if (!pickedDate || !pickedTime) { err.classList.remove("d-none"); return; }
+    err.classList.add("d-none");
+    const b = await Store.addBooking(skill.id, me.id, pickedDate, pickedTime);
     bookModal.hide();
     if (b) {
       root.insertAdjacentHTML("afterbegin",

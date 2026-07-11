@@ -6,7 +6,7 @@
   <title>NeighborLearn — Trade Your Time, Learn From Your Neighbours</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
@@ -14,63 +14,115 @@
 
   <!-- HERO -->
   <header class="container mt-4">
-    <div class="nl-hero p-4 p-md-5">
-      <div class="col-lg-9">
-        <span class="nl-chip mb-3">A time-banking community</span>
-        <h1 class="mb-3">Trade your time, learn from your neighbours.</h1>
-        <p class="fs-5 mb-4">No money changes hands. Teach what you know, earn time-credits, and spend them learning something new — all within your neighbourhood.</p>
-        <form id="hero-search" class="d-flex gap-2 flex-wrap" role="search">
-          <input class="form-control form-control-lg" id="hero-search-input" type="search" placeholder="What do you want to learn? e.g. guitar, budgeting…" style="max-width:420px;">
-          <button class="btn btn-nl btn-lg" type="submit"><i class="bi bi-search"></i> Search</button>
-        </form>
-        <p class="small mt-3 mb-0">Join retirees, students and neighbours already exchanging skills.</p>
+    <div class="nl-hero-splash">
+      <div class="row g-0 align-items-stretch">
+        <div class="col-lg-7 p-4 p-md-5">
+          <span class="nl-chip mb-3">A time-banking community</span>
+          <h1 class="mb-3">Trade your time.<br><em>Learn anything.</em></h1>
+          <p class="fs-5 mb-4">Every hour you teach earns you <strong>one time-credit</strong>. Spend it on learning something new from someone nearby. No money required.</p>
+          <form id="hero-search" class="d-flex gap-2 flex-wrap" role="search">
+            <input class="form-control form-control-lg" id="hero-search-input" type="search" placeholder="e.g. Plumbing, Piano, Cooking…" style="max-width:360px;">
+            <button class="btn btn-lg" type="submit" style="background:#fff;color:var(--nl-orange-dark);border-color:#fff;font-weight:600;">Browse Skills</button>
+          </form>
+        </div>
+        <div class="col-lg-5">
+          <img src="img/hero.jpg" alt="Neighbours learning together" class="nl-hero-fill">
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- HOW IT WORKS -->
-  <section id="how" class="container my-5">
-    <div class="text-center mb-4">
-      <h2>How It Works</h2>
-      <p class="text-muted">Three simple steps to start exchanging skills.</p>
-    </div>
-    <div class="row g-4 text-center">
-      <div class="col-md-4">
-        <div class="nl-step-num mb-3">1</div>
-        <h4>Offer a skill</h4>
-        <p class="text-muted">Share something you can teach — cooking, repairs, a language, tech help.</p>
-      </div>
-      <div class="col-md-4">
-        <div class="nl-step-num mb-3">2</div>
-        <h4>Earn time-credits</h4>
-        <p class="text-muted">Each hour you teach earns credits. One hour taught = one hour you can learn.</p>
-      </div>
-      <div class="col-md-4">
-        <div class="nl-step-num mb-3">3</div>
-        <h4>Learn something new</h4>
-        <p class="text-muted">Spend your credits booking sessions with other neighbours. Everyone wins.</p>
+  <!-- STATS STRIP -->
+  <section class="container mt-4">
+    <div class="nl-stats-strip p-4">
+      <div class="row text-center g-3">
+        <div class="col-4"><div class="num">24,000+</div><div class="small text-muted">Credits Exchanged</div></div>
+        <div class="col-4"><div class="num">150+</div><div class="small text-muted">Skills Listed</div></div>
+        <div class="col-4"><div class="num">2,500+</div><div class="small text-muted">Neighbors</div></div>
       </div>
     </div>
   </section>
 
-  <!-- FEATURED SKILLS -->
+  <!-- HOW IT WORKS -->
+  <section id="how" class="container my-5">
+    <div class="text-center mb-4">
+      <h2>How does it work?</h2>
+      <p class="text-muted">Built on a simple rule: every hour you spend teaching pays for an hour of learning.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="nl-how-card">
+          <div class="d-flex justify-content-between align-items-start">
+            <div class="nl-step-num mb-3">1</div><i class="bi bi-person-plus fs-3 text-muted"></i>
+          </div>
+          <h4>Register as a neighbor</h4>
+          <p class="text-muted mb-0">Create your free profile. List the everyday skills you can teach, and search for the skills you want to learn.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="nl-how-card">
+          <div class="d-flex justify-content-between align-items-start">
+            <div class="nl-step-num mb-3">2</div><i class="bi bi-calendar-check fs-3 text-muted"></i>
+          </div>
+          <h4>Book a session</h4>
+          <p class="text-muted mb-0">Find a local neighbor and schedule a 60-minute session. No money is required — just your time.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="nl-how-card">
+          <div class="d-flex justify-content-between align-items-start">
+            <div class="nl-step-num mb-3">3</div><i class="bi bi-mortarboard fs-3 text-muted"></i>
+          </div>
+          <h4>Teach, learn, and repeat</h4>
+          <p class="text-muted mb-0">Earn one credit for every hour you teach. Spend that credit to learn a new skill from someone else.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILL EXCHANGE -->
   <section class="container my-5">
     <div class="d-flex justify-content-between align-items-end mb-4">
       <div>
-        <h2 class="mb-0">Skills near you</h2>
-        <p class="text-muted mb-0">A taste of what neighbours are offering right now.</p>
+        <h2 class="mb-0">Skill Exchange</h2>
+        <p class="text-muted mb-0">Meet the teachers within the community.</p>
       </div>
-      <a href="browse.html" class="btn btn-nl-outline">View all <i class="bi bi-arrow-right"></i></a>
+      <a href="browse.html" class="btn btn-nl-outline">Browse All Skills <i class="bi bi-arrow-right"></i></a>
     </div>
     <div class="row g-4" id="featured-skills"></div>
   </section>
 
+  <!-- TESTIMONIALS -->
+  <section class="container my-5">
+    <div class="text-center mb-4">
+      <h2>What do Neighbors have to say?</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="nl-quote-card">
+          <div class="mb-2"><i class="bi bi-star-fill nl-star"></i><i class="bi bi-star-fill nl-star"></i><i class="bi bi-star-fill nl-star"></i><i class="bi bi-star-fill nl-star"></i><i class="bi bi-star-fill nl-star"></i></div>
+          <p>"I am 68 years old and I could not open a bank account online. James from NeighborLearn showed me step by step. Now I do everything myself. In exchange for his time, I taught him how to fix his ceiling fan!"</p>
+          <div class="fw-bold mb-0">Izdan Hakim</div>
+          <div class="small text-muted">Learned: Online Banking</div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="nl-quote-card">
+          <div class="mb-2"><i class="bi bi-star-fill nl-star"></i><i class="bi bi-star-fill nl-star"></i><i class="bi bi-star-fill nl-star"></i><i class="bi bi-star-fill nl-star"></i><i class="bi bi-star-fill nl-star"></i></div>
+          <p>"I never thought my knowledge of Viet cooking was too special, since everyone in my town knew it. But here, neighbours come every week and leave so happy. I have earned 52 credits so far and spent it on learning the guitar."</p>
+          <div class="fw-bold mb-0">Nguyen Thi Ngoc</div>
+          <div class="small text-muted">Teaches: Secrets of Vietnamese Cuisine</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="container my-5">
-    <div class="nl-hero text-center p-5">
-      <h2 class="mb-3">Ready to join your neighbourhood?</h2>
-      <p class="fs-5 mb-4">Sign up free and get <strong>3 welcome time-credits</strong> to start learning today.</p>
-      <a href="register.html" class="btn btn-nl btn-lg">Create your free account</a>
+    <div class="nl-hero-splash text-center p-5">
+      <h2 class="mb-3" style="color:#fff;">Ready to learn something new?</h2>
+      <p class="fs-5 mb-4">Join thousands of neighbors already swapping skills in your area.</p>
+      <a href="register.html" class="btn btn-lg" style="background:#fff;color:var(--nl-orange-dark);font-weight:600;">Register Now</a>
     </div>
   </section>
 

@@ -1,32 +1,400 @@
 {
   "users": [
-    { "id": 1, "name": "Grace Tan", "email": "grace@mail.com", "password": "password1", "location": "Subang Jaya", "avatarColor": "#E07B39", "bio": "Retired accountant who loves teaching budgeting and baking traditional kuih.", "rating": 4.8, "balance": 12 },
-    { "id": 2, "name": "Ethan Lim", "email": "ethan@mail.com", "password": "password1", "location": "Petaling Jaya", "avatarColor": "#5B8C5A", "bio": "Software student trading web skills for hands-on life skills.", "rating": 4.6, "balance": 6 },
-    { "id": 3, "name": "Marcus Wong", "email": "marcus@mail.com", "password": "password1", "location": "Shah Alam", "avatarColor": "#3E6D8E", "bio": "Mechanic by trade, happy to teach basic car and bike maintenance.", "rating": 4.9, "balance": 15 },
-    { "id": 4, "name": "Priya Nair", "email": "priya@mail.com", "password": "password1", "location": "Puchong", "avatarColor": "#9B5DE5", "bio": "Language enthusiast — Mandarin, guitar, and a bit of calligraphy.", "rating": 4.7, "balance": 9 },
-    { "id": 5, "name": "Aisha Rahman", "email": "aisha@mail.com", "password": "password1", "location": "Subang Jaya", "avatarColor": "#C25E1E", "bio": "Home cook sharing recipes and looking to learn digital photography.", "rating": 4.5, "balance": 4 },
-    { "id": 6, "name": "Daniel Ong", "email": "daniel@mail.com", "password": "password1", "location": "Petaling Jaya", "avatarColor": "#2A9D8F", "bio": "Fitness coach offering beginner workout and stretching sessions.", "rating": 4.4, "balance": 7 }
+    {
+      "id": 1,
+      "name": "Grace Tan",
+      "email": "grace@mail.com",
+      "password": "password1",
+      "location": "Subang Jaya",
+      "avatarColor": "#E07B39",
+      "bio": "Retired accountant who loves teaching budgeting and baking traditional kuih.",
+      "rating": 4.8,
+      "balance": 12,
+      "wants": [
+        "Digital Photography",
+        "Smartphone Basics"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Ethan Lim",
+      "email": "ethan@mail.com",
+      "password": "password1",
+      "location": "Petaling Jaya",
+      "avatarColor": "#5B8C5A",
+      "bio": "Software student trading web skills for hands-on life skills.",
+      "rating": 4.6,
+      "balance": 6,
+      "wants": [
+        "Basic Car Maintenance",
+        "Everyday Home Cooking",
+        "Acoustic Guitar"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Marcus Wong",
+      "email": "marcus@mail.com",
+      "password": "password1",
+      "location": "Shah Alam",
+      "avatarColor": "#3E6D8E",
+      "bio": "Mechanic by trade, happy to teach basic car and bike maintenance.",
+      "rating": 4.9,
+      "balance": 15,
+      "wants": [
+        "Beginner Mandarin",
+        "Home Budgeting"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Priya Nair",
+      "email": "priya@mail.com",
+      "password": "password1",
+      "location": "Puchong",
+      "avatarColor": "#9B5DE5",
+      "bio": "Language enthusiast — Mandarin, guitar, and a bit of calligraphy.",
+      "rating": 4.7,
+      "balance": 9,
+      "wants": [
+        "Basic Car Maintenance",
+        "Full-Body Workout"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Aisha Rahman",
+      "email": "aisha@mail.com",
+      "password": "password1",
+      "location": "Subang Jaya",
+      "avatarColor": "#C25E1E",
+      "bio": "Home cook sharing recipes and looking to learn digital photography.",
+      "rating": 4.5,
+      "balance": 4,
+      "wants": [
+        "Build Your First Web Page",
+        "Chinese Calligraphy"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Daniel Ong",
+      "email": "daniel@mail.com",
+      "password": "password1",
+      "location": "Petaling Jaya",
+      "avatarColor": "#2A9D8F",
+      "bio": "Fitness coach offering beginner workout and stretching sessions.",
+      "rating": 4.4,
+      "balance": 7,
+      "wants": [
+        "Everyday Home Cooking",
+        "Acoustic Guitar"
+      ]
+    }
   ],
   "skills": [
-    { "id": 101, "ownerId": 1, "title": "Home Budgeting & Saving Basics", "category": "Finance", "area": "Subang Jaya", "credits": 1, "rating": 4.8, "hidden": false, "description": "Learn how to build a simple monthly budget, track spending, and start an emergency fund. Perfect for students and young families." },
-    { "id": 102, "ownerId": 1, "title": "Traditional Nyonya Kuih Making", "category": "Cooking", "area": "Subang Jaya", "credits": 2, "rating": 4.9, "hidden": false, "description": "A hands-on session making two classic kuih from scratch. Ingredients discussed beforehand." },
-    { "id": 103, "ownerId": 2, "title": "Build Your First Web Page (HTML/CSS)", "category": "Technology", "area": "Petaling Jaya", "credits": 1, "rating": 4.7, "hidden": false, "description": "From zero to a live personal page. We cover HTML structure, basic CSS styling, and how to publish for free." },
-    { "id": 104, "ownerId": 2, "title": "Smartphone Basics for Seniors", "category": "Technology", "area": "Petaling Jaya", "credits": 1, "rating": 4.6, "hidden": false, "description": "Patient, step-by-step help with messaging, video calls, online banking safety, and installing apps." },
-    { "id": 105, "ownerId": 3, "title": "Basic Car Maintenance", "category": "Automotive", "area": "Shah Alam", "credits": 2, "rating": 4.9, "hidden": false, "description": "Check oil, tyre pressure, battery and change a wiper. Save money and stay safe on the road." },
-    { "id": 106, "ownerId": 3, "title": "Fix a Leaking Tap", "category": "Home Repair", "area": "Shah Alam", "credits": 1, "rating": 4.8, "hidden": false, "description": "A practical home-repair session covering the most common tap and pipe leaks." },
-    { "id": 107, "ownerId": 4, "title": "Beginner Mandarin Conversation", "category": "Language", "area": "Puchong", "credits": 1, "rating": 4.7, "hidden": false, "description": "Everyday phrases, pronunciation and confidence to hold a short conversation." },
-    { "id": 108, "ownerId": 4, "title": "Acoustic Guitar for Absolute Beginners", "category": "Music", "area": "Puchong", "credits": 2, "rating": 4.6, "hidden": false, "description": "Hold the guitar, tune it, and play your first three chords and a simple song." },
-    { "id": 109, "ownerId": 5, "title": "Everyday Malaysian Home Cooking", "category": "Cooking", "area": "Subang Jaya", "credits": 2, "rating": 4.5, "hidden": false, "description": "Cook two comforting home dishes with simple ingredients you already have." },
-    { "id": 110, "ownerId": 6, "title": "Beginner Full-Body Workout", "category": "Fitness", "area": "Petaling Jaya", "credits": 1, "rating": 4.4, "hidden": false, "description": "A safe, low-impact routine you can do at home with no equipment." },
-    { "id": 111, "ownerId": 6, "title": "Stretching & Posture for Desk Workers", "category": "Fitness", "area": "Petaling Jaya", "credits": 1, "rating": 4.5, "hidden": false, "description": "Undo the effects of sitting all day with a gentle guided routine." },
-    { "id": 112, "ownerId": 1, "title": "Reading a Utility Bill & Cutting Costs", "category": "Finance", "area": "Subang Jaya", "credits": 1, "rating": 4.7, "hidden": false, "description": "Understand your electricity and water bills and find easy ways to save." },
-    { "id": 113, "ownerId": 4, "title": "Intro to Chinese Calligraphy", "category": "Art", "area": "Puchong", "credits": 2, "rating": 4.8, "hidden": false, "description": "Brush handling, basic strokes and writing your first character." },
-    { "id": 114, "ownerId": 3, "title": "Bicycle Repair & Tune-Up", "category": "Automotive", "area": "Shah Alam", "credits": 1, "rating": 4.6, "hidden": false, "description": "Fix a puncture, adjust brakes and gears, and keep your bike running smoothly." }
+    {
+      "id": 101,
+      "ownerId": 1,
+      "title": "Home Budgeting & Saving Basics",
+      "category": "Finance",
+      "area": "Subang Jaya",
+      "credits": 1,
+      "rating": 4.8,
+      "hidden": false,
+      "description": "Learn how to build a simple monthly budget, track spending, and start an emergency fund. Perfect for students and young families."
+    },
+    {
+      "id": 102,
+      "ownerId": 1,
+      "title": "Traditional Nyonya Kuih Making",
+      "category": "Cooking",
+      "area": "Subang Jaya",
+      "credits": 2,
+      "rating": 4.9,
+      "hidden": false,
+      "description": "A hands-on session making two classic kuih from scratch. Ingredients discussed beforehand."
+    },
+    {
+      "id": 103,
+      "ownerId": 2,
+      "title": "Build Your First Web Page (HTML/CSS)",
+      "category": "Technology",
+      "area": "Petaling Jaya",
+      "credits": 1,
+      "rating": 4.7,
+      "hidden": false,
+      "description": "From zero to a live personal page. We cover HTML structure, basic CSS styling, and how to publish for free."
+    },
+    {
+      "id": 104,
+      "ownerId": 2,
+      "title": "Smartphone Basics for Seniors",
+      "category": "Technology",
+      "area": "Petaling Jaya",
+      "credits": 1,
+      "rating": 4.6,
+      "hidden": false,
+      "description": "Patient, step-by-step help with messaging, video calls, online banking safety, and installing apps."
+    },
+    {
+      "id": 105,
+      "ownerId": 3,
+      "title": "Basic Car Maintenance",
+      "category": "Automotive",
+      "area": "Shah Alam",
+      "credits": 2,
+      "rating": 4.9,
+      "hidden": false,
+      "description": "Check oil, tyre pressure, battery and change a wiper. Save money and stay safe on the road."
+    },
+    {
+      "id": 106,
+      "ownerId": 3,
+      "title": "Fix a Leaking Tap",
+      "category": "Home Repair",
+      "area": "Shah Alam",
+      "credits": 1,
+      "rating": 4.8,
+      "hidden": false,
+      "description": "A practical home-repair session covering the most common tap and pipe leaks."
+    },
+    {
+      "id": 107,
+      "ownerId": 4,
+      "title": "Beginner Mandarin Conversation",
+      "category": "Language",
+      "area": "Puchong",
+      "credits": 1,
+      "rating": 4.7,
+      "hidden": false,
+      "description": "Everyday phrases, pronunciation and confidence to hold a short conversation."
+    },
+    {
+      "id": 108,
+      "ownerId": 4,
+      "title": "Acoustic Guitar for Absolute Beginners",
+      "category": "Music",
+      "area": "Puchong",
+      "credits": 2,
+      "rating": 4.6,
+      "hidden": false,
+      "description": "Hold the guitar, tune it, and play your first three chords and a simple song."
+    },
+    {
+      "id": 109,
+      "ownerId": 5,
+      "title": "Everyday Malaysian Home Cooking",
+      "category": "Cooking",
+      "area": "Subang Jaya",
+      "credits": 2,
+      "rating": 4.5,
+      "hidden": false,
+      "description": "Cook two comforting home dishes with simple ingredients you already have."
+    },
+    {
+      "id": 110,
+      "ownerId": 6,
+      "title": "Beginner Full-Body Workout",
+      "category": "Fitness",
+      "area": "Petaling Jaya",
+      "credits": 1,
+      "rating": 4.4,
+      "hidden": false,
+      "description": "A safe, low-impact routine you can do at home with no equipment."
+    },
+    {
+      "id": 111,
+      "ownerId": 6,
+      "title": "Stretching & Posture for Desk Workers",
+      "category": "Fitness",
+      "area": "Petaling Jaya",
+      "credits": 1,
+      "rating": 4.5,
+      "hidden": false,
+      "description": "Undo the effects of sitting all day with a gentle guided routine."
+    },
+    {
+      "id": 112,
+      "ownerId": 1,
+      "title": "Reading a Utility Bill & Cutting Costs",
+      "category": "Finance",
+      "area": "Subang Jaya",
+      "credits": 1,
+      "rating": 4.7,
+      "hidden": false,
+      "description": "Understand your electricity and water bills and find easy ways to save."
+    },
+    {
+      "id": 113,
+      "ownerId": 4,
+      "title": "Intro to Chinese Calligraphy",
+      "category": "Art",
+      "area": "Puchong",
+      "credits": 2,
+      "rating": 4.8,
+      "hidden": false,
+      "description": "Brush handling, basic strokes and writing your first character."
+    },
+    {
+      "id": 114,
+      "ownerId": 3,
+      "title": "Bicycle Repair & Tune-Up",
+      "category": "Automotive",
+      "area": "Shah Alam",
+      "credits": 1,
+      "rating": 4.6,
+      "hidden": false,
+      "description": "Fix a puncture, adjust brakes and gears, and keep your bike running smoothly."
+    }
   ],
   "bookings": [
-    { "id": 201, "skillId": 105, "learnerId": 2, "teacherId": 3, "date": "2026-07-02", "time": "10:00", "status": "completed" },
-    { "id": 202, "skillId": 107, "learnerId": 2, "teacherId": 4, "date": "2026-07-10", "time": "15:00", "status": "upcoming" },
-    { "id": 203, "skillId": 103, "learnerId": 5, "teacherId": 2, "date": "2026-07-12", "time": "11:00", "status": "upcoming" }
+    {
+      "id": 201,
+      "skillId": 105,
+      "learnerId": 2,
+      "teacherId": 3,
+      "date": "2026-07-02",
+      "time": "10:00",
+      "status": "completed"
+    },
+    {
+      "id": 202,
+      "skillId": 107,
+      "learnerId": 2,
+      "teacherId": 4,
+      "date": "2026-07-10",
+      "time": "15:00",
+      "status": "upcoming"
+    },
+    {
+      "id": 203,
+      "skillId": 103,
+      "learnerId": 5,
+      "teacherId": 2,
+      "date": "2026-07-12",
+      "time": "11:00",
+      "status": "upcoming"
+    }
   ],
-  "counters": { "user": 100, "skill": 200, "booking": 300 }
+  "conversations": [
+    {
+      "id": 501,
+      "userA": 2,
+      "userB": 3,
+      "messages": [
+        {
+          "senderId": 3,
+          "text": "Hi Ethan! Glad the car maintenance session went well. Let me know if the oil change tip worked out.",
+          "time": "2h"
+        },
+        {
+          "senderId": 2,
+          "text": "It did, thank you Marcus! Saved me a trip to the workshop. I'd love to book the bicycle tune-up next.",
+          "time": "1h"
+        },
+        {
+          "senderId": 3,
+          "text": "Anytime mate. Just send a booking request and pick a day that suits you.",
+          "time": "45m"
+        }
+      ]
+    },
+    {
+      "id": 502,
+      "userA": 2,
+      "userB": 4,
+      "messages": [
+        {
+          "senderId": 4,
+          "text": "Hello! Looking forward to our Mandarin session. Have you practised the greetings we talked about?",
+          "time": "3d"
+        },
+        {
+          "senderId": 2,
+          "text": "Yes! Ni hao is coming along nicely. Could we also cover ordering food?",
+          "time": "3d"
+        },
+        {
+          "senderId": 4,
+          "text": "Of course, that's a great everyday topic. I'll prepare a short list for us.",
+          "time": "2d"
+        }
+      ]
+    },
+    {
+      "id": 503,
+      "userA": 2,
+      "userB": 5,
+      "messages": [
+        {
+          "senderId": 5,
+          "text": "Thanks for teaching me how to build my first web page — my little bakery site is live now!",
+          "time": "1w"
+        },
+        {
+          "senderId": 2,
+          "text": "That's wonderful to hear, Aisha! Send me the link, I'd love to see it.",
+          "time": "1w"
+        }
+      ]
+    }
+  ],
+  "counters": {
+    "user": 100,
+    "skill": 200,
+    "booking": 300,
+    "conversation": 500,
+    "review": 600
+  },
+  "reviews": [
+    {
+      "id": 601,
+      "targetUserId": 2,
+      "reviewerId": 3,
+      "rating": 5.0,
+      "text": "Ethan is a patient teacher. He walked my nephew through building his first web page in one afternoon. Highly recommend!",
+      "time": "2d"
+    },
+    {
+      "id": 602,
+      "targetUserId": 2,
+      "reviewerId": 4,
+      "rating": 4.8,
+      "text": "Clear, friendly and very organised. I finally understand how websites are put together. Thank you!",
+      "time": "1w"
+    },
+    {
+      "id": 603,
+      "targetUserId": 2,
+      "reviewerId": 5,
+      "rating": 5.0,
+      "text": "He helped me get my little bakery site online. I couldn't have done it without his guidance.",
+      "time": "2w"
+    },
+    {
+      "id": 604,
+      "targetUserId": 2,
+      "reviewerId": 1,
+      "rating": 4.5,
+      "text": "Very helpful and respectful. Explained everything slowly for me, which I really appreciated.",
+      "time": "3w"
+    },
+    {
+      "id": 605,
+      "targetUserId": 3,
+      "reviewerId": 2,
+      "rating": 5.0,
+      "text": "Marcus saved me a costly trip to the workshop. Practical, hands-on and generous with his time.",
+      "time": "5d"
+    },
+    {
+      "id": 606,
+      "targetUserId": 4,
+      "reviewerId": 2,
+      "rating": 4.7,
+      "text": "Priya makes learning Mandarin fun and low-pressure. Looking forward to the next session.",
+      "time": "1w"
+    }
+  ]
 }

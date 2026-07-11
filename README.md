@@ -64,7 +64,7 @@ Dashboard (see the updated session statistics and time-credit balance).
 app.py              Local server (serves public/ + JSON API)
 data.json           Coursework demo data (the app reads and writes this file)
 README.md
-public/             The website (this is what gets served) — 7 pages
+public/             The website (this is what gets served) — 8 pages
   index.html          Home
   browse.html         Browse / search / category filter
   skill-detail.html   One skill + booking
@@ -72,15 +72,18 @@ public/             The website (this is what gets served) — 7 pages
   register.html       Register (with validation)
   profile.html        User dashboard (profile, stats, session history)
   bookings.html       My bookings (mark complete / cancel)
+  messages.html       Messages (two-pane conversations)
   css/style.css       Theme + all styling (colours in :root)
+  img/                Photos (skill categories, hero) + assets
   js/store.js         Data layer — talks to the Python API
   js/common.js        Navbar, footer, shared helpers
   js/<page>.js        Logic for each page
 ```
 
-> Messaging, leaving reviews, and an admin panel were intentionally left out
-> to keep the scope focused — they are discussed in the report's
-> "Potential Improvements" section.
+> Leaving reviews and an admin panel were intentionally left out to keep the
+> scope focused — they are discussed in the report's "Potential Improvements"
+> section.
 
-> **Reset the data:** `data.json` is a plain file — keep a backup copy (or use
-> Git) and restore it whenever you want the original demo data back.
+> **Reset the data:** `data.json` is a plain file that the app writes to. To
+> restore the original demo data, undo your changes with Git
+> (`git checkout data.json`).
