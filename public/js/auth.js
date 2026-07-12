@@ -3,6 +3,7 @@
    that show a clear error message. */
 document.addEventListener("DOMContentLoaded", async function () {
   await Store.init();
+  wirePasswordToggles();   // the show/hide eye buttons on password fields
 
   // after a successful login/register, go to this page
   function goNext(page) {
@@ -28,6 +29,10 @@ document.addEventListener("DOMContentLoaded", async function () {
 
       const user = Store.login(email, password);
       if (user) {
+        // "Remember me" keeps the session cookie for 30 days instead of the tab
+        if (document.getElementById("remember") && document.getElementById("remember").checked) {
+          document.cookie = "nl_session=" + user.id + ";path=/;max-age=" + (60 * 60 * 24 * 30);
+        }
         goNext("profile.html");
       } else {
         errBox.textContent = "Wrong email or password. Please try again.";
@@ -44,7 +49,10 @@ document.addEventListener("DOMContentLoaded", async function () {
       const errBox = document.getElementById("register-error");
       errBox.classList.add("d-none");
 
-      const name = document.getElementById("name").value.trim();
+      // first + last name are combined into one display name
+      const firstName = document.getElementById("firstName").value.trim();
+      const lastName = document.getElementById("lastName").value.trim();
+      const name = (firstName + " " + lastName).trim();
       const email = document.getElementById("email").value.trim();
       const location = document.getElementById("location").value.trim();
       const password = document.getElementById("password").value;
@@ -58,12 +66,13 @@ document.addEventListener("DOMContentLoaded", async function () {
       }
 
       // check the fields one by one
-      if (name.length < 2)            return fail("Please enter your name.");
+      if (firstName === "")           return fail("Please enter your first name.");
+      if (lastName === "")            return fail("Please enter your last name.");
       if (!email.includes("@"))       return fail("Please enter a valid email address.");
-      if (location === "")            return fail("Please tell us your neighbourhood.");
-      if (password.length < 6)        return fail("Password must be at least 6 characters.");
-      if (!/[A-Za-z]/.test(password) || !/[0-9]/.test(password))
-                                      return fail("Password needs at least one letter and one number.");
+      if (location === "")            return fail("Please choose your neighbourhood.");
+      if (password.length < 8)        return fail("Password must be at least 8 characters.");
+      if (!/[A-Za-z]/.test(password) || !/[0-9]/.test(password) || !/[^A-Za-z0-9]/.test(password))
+                                      return fail("Password needs a letter, a number and a symbol.");
       if (password !== confirm)       return fail("The two passwords do not match.");
       if (!agreed)                    return fail("Please agree to the Terms of Service to continue.");
 
@@ -76,3 +85,21 @@ document.addEventListener("DOMContentLoaded", async function () {
     });
   }
 });
+
+/* show/hide password: each .nl-pw-toggle flips its target field between
+   dots and plain text, and swaps the eye icon. */
+function wirePasswordToggles() {
+  document.querySelectorAll(".nl-pw-toggle").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      const field = document.getElementById(btn.dataset.target);
+      const icon = btn.querySelector("i");
+      if (field.type === "password") {
+        field.type = "text";
+        icon.className = "bi bi-eye-slash";
+      } else {
+        field.type = "password";
+        icon.className = "bi bi-eye";
+      }
+    });
+  });
+}

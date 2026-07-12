@@ -2,8 +2,8 @@
 document.addEventListener("DOMContentLoaded", async function () {
   await Store.init();
 
-  // featured skills (first 4)
-  const featured = Store.getSkills().slice(0, 4);
+  // featured skills (first 6)
+  const featured = Store.getSkills().slice(0, 6);
   document.getElementById("featured-skills").innerHTML = featured.map(nlSkillCard).join("");
 
   // hero search -> browse page

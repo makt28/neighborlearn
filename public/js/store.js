@@ -175,6 +175,38 @@ const Store = {
     return booking;
   },
 
+  /* ---------- reviews ---------- */
+  // all community reviews written about this user
+  getReviews(userId) {
+    if (!db.reviews) return [];
+    return db.reviews.filter(r => r.targetUserId === userId);
+  },
+
+  /* ---------- messages ---------- */
+  // all conversations that this user is part of
+  getConversations(userId) {
+    if (!db.conversations) return [];
+    return db.conversations.filter(c => c.userA === userId || c.userB === userId);
+  },
+
+  getConversation(id) {
+    if (!db.conversations) return null;
+    for (const c of db.conversations) {
+      if (c.id === id) return c;
+    }
+    return null;
+  },
+
+  // add a message from `senderId` to the conversation, then save
+  async sendMessage(convId, senderId, text) {
+    const conv = Store.getConversation(convId);
+    if (!conv) return null;
+    const message = { senderId: senderId, text: text, time: "now" };
+    conv.messages.push(message);
+    await Store.save();
+    return message;
+  },
+
   async updateBookingStatus(id, status) {
     // find the booking with this id
     let booking = null;
